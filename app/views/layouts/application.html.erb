@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <div class="container py-3">
+    <header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <h5 class="fs-4">RubyApp</h5>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <span class="py-2 text-dark text-decoration-none"><%= link_to "Main Page", home_path %></span>
+      </nav>
+      <span class="py-2 text-dark text-decoration-none"><%= link_to "New Page", new_post_path %></span>
+      <span class="py-2 text-dark text-decoration-none"><%= link_to "About", about_path %></span>
+    </header>
+  </div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+    
+  </body>
+</html>

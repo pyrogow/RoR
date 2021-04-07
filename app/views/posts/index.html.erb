@@ -1,0 +1,17 @@
+<h1>Main Page</h1>
+<p><a href="about">Go to About page</a></p>
+<form accept-charset="UTF-8" action="/search" data-remote="true" method="get">
+    <label for="query">Please enter your name:</label>
+    <input id="query" name="query" type="text" />
+    <input name="commit" type="submit" value="Search" data-disable-with="Search" class="Search"/>
+</form>
+
+<h3>You can see here all of posts</h3>
+<% @post.each do |post| %>
+  <div>
+    <h4><%= post.title %></h4>
+    <h5><%= post.body %></h5>
+    <%= link_to "See more", post_path(post), :class => "btn btn-default" %>
+  </div>
+
+<% end %>

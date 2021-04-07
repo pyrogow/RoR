@@ -1,0 +1,7 @@
+<h1>Hello <%= @post.title + ' ' + @post.body%></h1>
+<hr>
+<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-warning' %>
+<%#= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-danger' %>
+<%#= link_to "Delete", post_path(@post), :action => 'destroy', :method => :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-danger' %>
+<%= button_to "delete", {:controller => :posts, :action => 'destroy', :id => @post.id }, :method => :delete, :class => 'btn btn-danger'%>
+<%#= link_to 'delete', { controller: :posts, action: "destroy", id: @post.id }, data: { confirm: 'Are you sure?' }, method: :delete %>
