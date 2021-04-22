@@ -56,6 +56,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
-  gem 'rspec-rails',      ">= 2.0.0.beta"
+  gem 'devise'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'factory_bot_rails'
   gem 'rspec-html-matchers'
+  gem 'rspec-rails', '>= 2.0.0.beta'
+  gem 'rubocop', '~> 1.12', require: false
 end

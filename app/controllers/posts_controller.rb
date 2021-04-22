@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   before_action :logged_in_user
   def index
-    @post = Post.all
+    @post = current_user.posts.all
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def show
@@ -13,11 +13,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
-    post = Post.find(params[:id])
+    post = current_user.posts.find(params[:id])
     if (post.update(post_params))
       redirect_to post
     else
@@ -27,14 +27,19 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    @post = current_user.posts.find(params[:id])
+    if @post
+      @post.destroy
+      flash[:success] = "Post has been deleted"
+    else
+      flash[:alert] = "Error"
+    end
     redirect_to posts_path
   end
 
   def create
     # render plain: params[:post].inspect
-    @post = Post.new(post_params) # передаємо метод, який знизу створений
+    @post = current_user.posts.new(post_params) # передаємо метод, який знизу створений
 
     if (@post.save)
       redirect_to @post
