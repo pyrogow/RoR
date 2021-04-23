@@ -1,6 +1,8 @@
-RSpec.describe "hello spec" do
-  describe "math" do
-    it "math function of summ" do
+# frozen_string_literal: true
+
+RSpec.describe 'hello spec' do
+  describe 'math' do
+    it 'math function of summ' do
       expect(150 + 268).to eq(418)
     end
   end

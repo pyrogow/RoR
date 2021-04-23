@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # FactoryBotRails.define do
 #   factory :user do
 #     name                  'Oleksandr'

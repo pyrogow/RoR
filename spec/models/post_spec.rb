@@ -1,19 +1,16 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe Post, :type => :model do
-  include RSpecHtmlMatchers
-  it "is not valid without a title"
-  it "is not valid without a body"
-  describe "Checking for empty form" do
-    expect(rendered).to have_tag('div')
+RSpec.describe Post, type: :model do
+  describe 'validations' do
+    it { should validate_presence_of(:title) }
+    it { should validate_length_of(:title).is_at_least(3).with_message('should be at least 3 characters') }
   end
-end
 
-# require 'spec_helper'
-describe "my view spec" do
-  include RSpecHtmlMatchers
-
-  it "has tags" do
-    expect(rendered).to have_tag('div')
+  describe 'relations' do
+    it { should belong_to(:user) }
   end
+
+  it('has a valid factory') { expect(build(:post)).to be_valid }
 end
